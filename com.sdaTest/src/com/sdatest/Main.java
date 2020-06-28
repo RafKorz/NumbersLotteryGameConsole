@@ -3,22 +3,16 @@ package com.sdatest;
 import com.sdatest.engine.LotteryEngine;
 import com.sdatest.input.ConsoleInput;
 import com.sdatest.user.User;
-
-public class Main 
-{
-    public static void main(String[] args) 
-    {
-
+import java.util.Arrays;
+public class Main {
+    public static void main(String[] args) {
         User user1 = ConsoleInput.getUserData();
         user1.welcome();
-        
-        LotteryEngine lottery = new LotteryEngine(1, 20, 10);
-        
-        
-        for(int i=0; i<SIZE; i++) 
-        {                
-            System.out.print(lottery.getRandomNumber() + ", ");
-        }
+        int count = 10;
+        int[] userNumbers = ConsoleInput.getUserNumbers(count);
+        System.out.println("Twoje wytypowane liczby: " + Arrays.toString(userNumbers));
+        LotteryEngine lottery = new LotteryEngine(1, 20, count);
+        int[] randomNumbers = lottery.getMultipleInts();
+        System.out.println("Wylosowane liczby: " + Arrays.toString(randomNumbers));
     }
-    public static final int SIZE = 10;
 }

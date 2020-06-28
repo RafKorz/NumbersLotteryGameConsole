@@ -1,5 +1,9 @@
 package com.sdatest.user;
+
+import java.util.Scanner;
+
 public class User {
+    
     String name;
     String lastName;
     public User(String name, String lastName)
