@@ -2,6 +2,7 @@ package com.sdatest.engine;
 
 import java.util.Arrays;
 import java.util.Random;
+import utils.ArrayHelper;
 
 public class LotteryEngine {
     int start;
@@ -33,5 +34,17 @@ public class LotteryEngine {
     {
         Random random = new Random();
         return random.nextInt(end + 1 - start) + start;
+    }
+    
+    public int getCountOfCorrectTypes(int[] randomNums, int[] userNums)
+    {
+        int counter = 0;
+        for (int userType : userNums) {
+            if (ArrayHelper.isNumberExists(randomNums, userType)) {
+                counter++;
+            }
+        }
+
+        return counter;
     }
 }
